@@ -40,6 +40,9 @@ string makeKey(string keywordToKey) {
     return key;
 }
 
+
+const char END_CHAR = '~';
+
 const string job_id_key = makeKey("Job ID");
 const string job_title_key = makeKey("Job Title");
 const string company_key = makeKey("Company");
