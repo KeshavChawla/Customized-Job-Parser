@@ -64,7 +64,7 @@ void parseJob(ofstream& output_file, ifstream& jobFile, skillsPackage* current_s
 
     // For now just make sure your CSV files don't contain except at
     // the end of each row on a seperate cell'~'
-    while (getline(jobFile, text_block, '~')) {
+    while (getline(jobFile, text_block, END_CHAR)) {
         vector<string>* current_skills_list = (current_skills->skills_list);
         map<string, string>* current_skills_list_map = (current_skills->skills_to_desc_map);
         string job_id_block = parseJobListing(text_block, job_id_key);
@@ -112,7 +112,7 @@ skillsPackage* parseSkills(ifstream& skillsFile) {
     string text_block;
     vector<string>* skills_list = new vector<string>;
     map<string, string>* skils_to_desc_map = new map<string, string>;
-    while (getline(skillsFile, text_block, '~')) {
+    while (getline(skillsFile, text_block, END_CHAR)) {
         string cur_skill = parseJobListing(text_block, skills_key);
         string cur_skill_desc = parseJobListing(text_block, skills_desc_key);
         (*skils_to_desc_map)[cur_skill] = cur_skill_desc;
